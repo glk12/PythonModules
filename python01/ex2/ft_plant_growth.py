@@ -19,7 +19,7 @@ def	main() -> None:
 	growth_plan = [(6, 6), (12, 6), (4, 6)]
 	print("=== Day 1 ===")
 	for plant in plants:
-		plant.display_info()
+		plant.get_info()
 	print("=== Day 7 ===")
 	for i in range(len(plants)):
 		plant = plants[i]

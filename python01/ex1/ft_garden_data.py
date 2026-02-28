@@ -12,7 +12,7 @@ def	main():
     plants = [Plant("Rose", 25, 30), Plant("Sunflower", 80, 45), Plant("Cactus", 15, 120)]
     print("=== Garden Plant Registry ===")
     for plant in plants:
-        plant.display_info()
+    	plant.display_info()
 
 if	__name__ == "__main__":
     main()
