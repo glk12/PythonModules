@@ -11,10 +11,11 @@ def parse_coord(s: str) -> tuple[float, float, float] | None:
     parsed: list[float] = []
     for val in parts:
         try:
-            parsed = float(val)
+            parsed.append(float(val))
         except ValueError:
             print(
-                f"Error on parameter '{val}': could not convert string to float: '{val}'"
+                f"Error on parameter '{val}': "
+                f"could not convert string to float: '{val}'"
             )
             return None
 
@@ -24,7 +25,7 @@ def parse_coord(s: str) -> tuple[float, float, float] | None:
 def get_player_pos():
     coord: tuple[float, float, float] = None
     coord2: tuple[float, float, float] = None
-    print("=== Game Coordinate System ===")
+    print("=== Game Coordinate System ===\n")
     print("Get a first set of coordinates")
     while coord is None:
         coord = parse_coord(
@@ -41,7 +42,7 @@ def get_player_pos():
         coord2 = parse_coord(
             input("Enter new coordinates as floats in format 'x,y,z': ")
         )
-    x2, y2, z2 = coord[0], coord[1], coord[2]
+    x2, y2, z2 = coord2[0], coord2[1], coord2[2]
     dist = math.sqrt((x - x2) ** 2 + (y - y2) ** 2 + (z - z2) ** 2)
     print(f"Distance between the 2 sets of coordinates: {round(dist, 4)}")
 
