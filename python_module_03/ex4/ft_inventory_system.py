@@ -13,7 +13,7 @@ def createInventory(argv: list[str]) -> dict[str, int]:
             continue
         item, count = s.split(":")
 
-        if item == "sword":
+        if item in inventory:
             print(f"Redundant item '{item}' - discarding")
             continue
 
@@ -26,14 +26,14 @@ def createInventory(argv: list[str]) -> dict[str, int]:
     return inventory
 
 
-def analyzeInventory(inv: dict[str, int], total_val: int) -> None:
-    """string that represents the item that has the biggets value"""
-    abundant = None
-    least_abundant = None
+def analyzeInventory(inv: dict[str, int]) -> None:
+    total_val = sum(inv.values())
+    abundant = ""
+    least_abundant = ""
 
     for item, count in inv.items():
-        percentage = total_val / count
-        print(f"Item {item} represents {percentage:.1f}")
+        percentage = (count / total_val) * 100
+        print(f"Item {item} represents {percentage:.1f}%")
 
         if not abundant:
             abundant = item
@@ -55,8 +55,8 @@ def updateInventory(inv: dict[str, int]) -> None:
     print(f"Updated inventory: {inv}")
 
 
-def ft_inventory_system():
-    print("=== Inventory System Analysis ===\n")
+def ft_inventory_system() -> None:
+    print("=== Inventory System Analysis ===")
     if len(sys.argv) < 2:
         print("Error: No argument provided!")
     else:
@@ -64,11 +64,10 @@ def ft_inventory_system():
         print(f"Got inventory: {inventory}")
         item_list = list(inventory.keys())
         print(f"Item list: {item_list}")
-        total = 0
         print(
             f"Total quantity of the {len(item_list)} items: {sum(inventory.values())}"
         )
-        analyzeInventory(inventory, total)
+        analyzeInventory(inventory)
         updateInventory(inventory)
 
 

@@ -19,12 +19,12 @@ def parse_coord(s: str) -> tuple[float, float, float] | None:
             )
             return None
 
-    return tuple(parsed)
+    return (parsed[0], parsed[1], parsed[2])
 
 
-def get_player_pos():
-    coord: tuple[float, float, float] = None
-    coord2: tuple[float, float, float] = None
+def get_player_pos() -> None:
+    coord: tuple[float, float, float] | None = None
+    coord2: tuple[float, float, float] | None = None
     print("=== Game Coordinate System ===\n")
     print("Get a first set of coordinates")
     while coord is None:
