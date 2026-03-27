@@ -4,7 +4,11 @@ def main():
     with open("new_discovery.txt", "w") as file:
         print("Storage unit created successfully...\n")
         print("Inscribing preservation data...")
-        content = "[ENTRY 001] New quantum algorithm discovered\n[ENTRY 002] Efficiency increased by 347%\n[ENTRY 003] Archived by Data Archivist trainee"
+        content = (
+            "[ENTRY 001] New quantum algorithm discovered\n"
+            "[ENTRY 002] Efficiency increased by 347%\n"
+            "[ENTRY 003] Archived by Data Archivist trainee"
+        )
         print(content)
         _ = file.write(content)
 
