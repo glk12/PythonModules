@@ -1,4 +1,4 @@
-def main():
+def main() -> None:
     print("=== CYBER ARCHIVES - PRESERVATION SYSTEM ===\n")
     print("Initializing new storage unit: new_discovery.txt")
     with open("new_discovery.txt", "w") as file:
