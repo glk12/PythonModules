@@ -76,8 +76,7 @@ class LogProcessor(DataProcessor):
         print(f"Processing data: {data}")
         if isinstance(data, list):
             for dic in data:
-                for v in dic.values():
-                    self.data.append(str(v))
+                self.data.append(f"{dic['log_level']}: {dic['log_message']}")
         else:
             self.data.append(data)
 
