@@ -3,7 +3,6 @@ from typing import Any
 
 
 class DataProcessor(ABC):
-
     def __init__(self) -> None:
         self.data: list[str] = []
         self.rank: int = 0
@@ -23,7 +22,6 @@ class DataProcessor(ABC):
 
 
 class NumericProcessor(DataProcessor):
-
     def ingest(self, data: Any) -> None:
         if not self.validate(data):
             raise ValueError("Improper numeric data")
@@ -46,7 +44,6 @@ class NumericProcessor(DataProcessor):
 
 
 class TextProcessor(DataProcessor):
-
     def ingest(self, data: Any) -> None:
         if not self.validate(data):
             raise ValueError("Improper text data")
@@ -69,7 +66,6 @@ class TextProcessor(DataProcessor):
 
 
 class LogProcessor(DataProcessor):
-
     def ingest(self, data: Any) -> None:
         if not self.validate(data):
             raise ValueError("Improper text data")
